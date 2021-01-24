@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.css" rel="stylesheet">
+
+  <title>Complain Us</title>
+</head>
+
+<body style="background-color: rgb(239, 248, 117);">
+  <div class="container mt-2">
+    <div class="card text-dark">
+      <form action="{{url_for('User.complaint')}}" method="POST">
+      <div class="card-header" style="background-color: turquoise;font-family: fantasy;"><h2>Register  a  Complain</h2></div>
+      <div class="card-body">
+          <div class="form-row">
+            <div class="form-group col-md-5">
+              <label for="name"><b><i style="color: red;">* </i>Full Name</b></label>
+              <input type="text" class="form-control" name="name" placeholder="Enter Name" required>
+            </div>
+            <div class="form-group col-md-5">
+              <label for="email"><b><i style="color: red;">* </i>Collage Mail id</b></label>
+              <input type="email" class="form-control" name="email" placeholder="first.last@aot.edu.in" required>
+              <!-- Start a flash message -->
+              {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                  <p class="px-3 mx-1 mb-2" style="display: block;color: red;background-color: black;">
+                    <b>Please, Enter your collage Mail id.</b>
+                  </p>
+                {% endif %}
+              {% endwith %}
+            </div>
+            <div class="form-group col-md-2">
+              <label for="roll"><b><i style="color: red;">* </i>Roll No</b></label>
+              <input type="text" class="form-control" name="roll" placeholder="Collage Roll No" required>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-5">
+              <label for="dept"><b><i style="color: red;">* </i>Choose Department</b></label>
+              <select class="form-control" id="dept" name="dept" required>
+                <option value=""> Select Correct One</option>
+                <option value="AEIE">AEIE</option>
+                <option value="CSE">CSE</option>
+                <option value="EE">EE</option>
+                <option value="IT">IT</option>
+                <option value="MCA">MCA</option>
+                <option value="ME">ME</option>
+              </select>
+            </div>
+            <div class="form-group col-md-5">
+              <label for="semester"><b><i style="color: red;">* </i>Select Current Semester</b></label>
+              <select class="form-control" id="semester" name="semester" required>
+                <option value=""> Current Semester</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+              </select>
+            </div>
+            <div class="form-group col-md-2">
+              <label for="year"><b><i style="color: red;">* </i>Select Year</b></label>
+              <select class="form-control" id="year" name="year" required>
+                <option value=""> Current Year</option>
+                <option value="First Year">First Year</option>
+                <option value="Second Year">Second Year</option>
+                <option value="Third Year">Third Year</option>
+                <option value="Fourth Year">Fourth Year</option>
+              </select>
+            </div>
+
+          </div><br>
+          <hr>
+          <div class="form-row">
+            <label for="addressto"><b><i style="color: red;">* </i>This is for :</b></label><br>
+            <input type="text" class="form-control" name="addressto" placeholder="Whom / What You Want to Address" required>
+          </div><br><hr><br>
+          <h4 class="text-center mb-2"><b>Write Your Application</b></h4>
+          <div class="form-row">
+            <div class="col">
+              <label for="title"><b><i style="color: red;">* </i>Title :</b></label><br>
+              <textarea class="form-control" name="title" placeholder="Title of Application" required></textarea>
+            </div>
+          </div>
+          <br><br>
+          <div class="form-row">
+            <div class="col">
+              <label for="body"><b><i style="color: red;">* </i>Body of Application :</b></label><br>
+              <textarea name="body" id="body" required></textarea>
+            </div>
+          </div><br>
+          <div class="form-group form-check">
+            <input type="checkbox" class="form-check-input" required="required" id="mycheck">
+            <label class="form-check-label" for="exampleCheck1">I confirm that the information are correct.</label>
+          </div><hr>
+          <div class="form-row">
+            <button type="submit" class="btn btn-primary btn-lg m-auto"><b>Submit</b></button>
+          </div><br>
+          <div class="text-center">
+            <p>NOTE : All <i style="color: red;">* </i> marked fields are mandatory</p>
+          </div>
+      </div>
+      </form>
+    </div>
+  </div>
+  
+
+  
+  <br>
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js"></script>
+  <script>
+    $('#body').summernote({
+      tabsize: 2,
+      height: 250
+    });
+  </script>
+
+</body>
+
+</html>
